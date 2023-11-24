@@ -5,7 +5,8 @@
 # DIR where the current script resides
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
-mkdir "${DIR}/fcsadaptor"; cd "${DIR}/fcsadaptor"
+mkdir "${DIR}/fcsadaptor"
+cd "${DIR}/fcsadaptor" || exit
 
 curl -LO https://github.com/ncbi/fcs/raw/main/dist/run_fcsadaptor.sh
 chmod 755 "${DIR}/fcsadaptor/run_fcsadaptor.sh"
