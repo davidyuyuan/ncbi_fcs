@@ -14,6 +14,10 @@ python3 "${DIR}/fcsgx/fcs.py" db check --mft "${SOURCE_DB_MANIFEST}" --dir "${LO
 
 # Verify functionality: 'test-only' database
 python3 "${DIR}/fcsgx/fcs.py" screen genome --fasta "${DIR}/fcsgx/fcsgx_test.fa.gz" --out-dir "${DIR}/fcsgx/gx_out/" --gx-db "${LOCAL_DB}/test-only"  --tax-id 6973
+head -n 5 "${DIR}/fcsgx/gx_out/fcsgx_test.fa.6973.taxonomy.rpt"
+head "${DIR}/fcsgx/gx_out/fcsgx_test.fa.6973.fcs_gx_report.txt"
 
 # Verify functionality: 'gxdb' database
 bsub -n 2 -M 524288 -q bigmem "${DIR}/fcsgx/fcs.py" screen genome --fasta "${DIR}/fcsgx/fcsgx_test.fa.gz" --out-dir "${DIR}/fcsgx/gx_out/" --gx-db "${LOCAL_DB}/gxdb" --tax-id 6973
+#head -n 5 "${DIR}/fcsgx/gx_out/fcsgx_test.fa.6973.taxonomy.rpt"
+#head "${DIR}/fcsgx/gx_out/fcsgx_test.fa.6973.fcs_gx_report.txt"
