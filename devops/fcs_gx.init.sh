@@ -24,3 +24,8 @@ python3 "${DIR}/fcsgx/fcs.py" db get --mft "${SOURCE_DB_MANIFEST}" --dir "${LOCA
 # gxdb
 SOURCE_DB_MANIFEST="https://ftp.ncbi.nlm.nih.gov/genomes/TOOLS/FCS/database/latest/all.manifest"
 python3 "${DIR}/fcsgx/fcs.py" db get --mft "${SOURCE_DB_MANIFEST}" --dir "${LOCAL_DB}/gxdb"
+
+# Verify functionality: 'test-only' database
+python3 "${DIR}/fcsgx/fcs.py" screen genome --fasta "${DIR}/fcsgx/fcsgx_test.fa.gz" --out-dir "${DIR}/fcsgx/gx_out/" --gx-db "${LOCAL_DB}/test-only"  --tax-id 6973
+head -n 5 "${DIR}/fcsgx/gx_out/fcsgx_test.fa.6973.taxonomy.rpt"
+head "${DIR}/fcsgx/gx_out/fcsgx_test.fa.6973.fcs_gx_report.txt"
